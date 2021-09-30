@@ -2,7 +2,7 @@
 A simple library that helps you count the time difference between parts of the code.
 
 EXAMPLE
->
+```
 #include "stopwatch.hpp"
 #include <iostream>
 #include <unistd.h>
@@ -27,3 +27,4 @@ int main() {
     func();
   }
 }
+```
