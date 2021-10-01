@@ -24,7 +24,7 @@ namespace stopwatch
         }
         uint64_t elapsed()
         {
-            std::ofstream data("timer.txt", std::ios_base::app);
+            std::ofstream data("difference_data.txt", std::ios_base::app);
             data<<"Time elapsed "<<sum<<"\n";
             return sum;
         }
