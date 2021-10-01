@@ -2,6 +2,7 @@
 #include <cstdint>
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <x86intrin.h>
 
 namespace stopwatch
@@ -14,15 +15,17 @@ namespace stopwatch
         std::uint32_t id;
         void start()
         {
-            now = __rdtscp(&id);
+            now = rdtscp(&id);
         }
         void stop()
         {
-            auto t = __rdtscp(&id);
+            auto t = rdtscp(&id);
             sum += (t - now);
         }
         uint64_t elapsed()
         {
+            std::ofstream data("timer.txt", std::ios_base::app);
+            data<<"Time elapsed "<<sum<<"\n";
             return sum;
         }
     };
